@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>YADES - Soru Sorma Modu</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YADES</h1>
+    <p><em>Soru Sorma Modu — Adım Adım Çözüm</em></p>
+    
+    <p><strong>Merhaba!</strong> Bir sorun mu var? Yaz, sana aritmetik ve mantık gücümle çözüm sunayım.</p>
+    
+    <textarea id="soru" rows="4" placeholder="Test sorusunu yaz... Örneğin: 'Bir otobüste 12 kişi var, 5 kişi iner, 3 kişi biner. Kaç kişi kalır?'" style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 5px;"></textarea>
+    
+    <button onclick="coz()">ÇÖZÜMÜ GÖSTER</button>
+    <button onclick="geri()">← Ana Sayfaya Dön</button>
+
+    <div id="sonuc" style="margin-top: 20px; padding: 15px; background: #f0f8ff; border-radius: 8px; display: none;">
+      <h3>Çözüm Adımları:</h3>
+      <div id="adimlar"></div>
+    </div>
+  </div>
+
+  <script src="js/soru.js"></script>
+</body>
+</html>

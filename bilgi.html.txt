@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>YADES - Bilgi Modu</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YADES</h1>
+    <p><em>Bilgi Modu — Hızlı ve Güvenilir Bilgi</em></p>
+    
+    <p><strong>Merhaba!</strong> Bir şey mi öğrenmek istiyorsun? Aşağıya yaz, sana MEB müfredatına uygun şekilde açıklıyorum.</p>
+    
+    <input type="text" id="konu" placeholder="Öğrenmek istediğin konu..." />
+    <button onclick="ara()">ARA</button>
+    <button onclick="geri()">← Ana Sayfaya Dön</button>
+
+    <div id="sonuc" style="margin-top: 20px; padding: 15px; background: #f0f8ff; border-radius: 8px; display: none;">
+      <strong id="baslik"></strong>
+      <p id="aciklama"></p>
+    </div>
+  </div>
+
+  <script src="js/bilgi.js"></script>
+</body>
+</html>

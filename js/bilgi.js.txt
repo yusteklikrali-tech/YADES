@@ -1,0 +1,106 @@
+function ara() {
+  const input = document.getElementById("konu");
+  const soru = input.value.trim().toLowerCase();
+  const sonuc = document.getElementById("sonuc");
+  const baslik = document.getElementById("baslik");
+  const aciklama = document.getElementById("aciklama");
+
+  if (soru === "") {
+    alert("Lütfen bir konu yazın.");
+    return;
+  }
+
+  let baslikMetni = "Bilgi";
+  let aciklamaMetni = "";
+
+  // 1. "nedir" mi diyor?
+  if (soru.includes("nedir") || soru.includes("ne demek")) {
+    baslikMetni = `"${soru.replace("nedir", "").trim()}" Nedir?`;
+
+    if (soru.includes("karekök")) {
+      aciklamaMetni = "Karekök, bir sayının hangi sayının karesi olduğunu bulma işlemidir. Örneğin √25 = 5 çünkü 5×5=25.";
+    }
+    else if (soru.includes("fotosentez")) {
+      aciklamaMetni = "Fotosentez, bitkilerin güneş ışığını kullanarak karbondioksit ve sudan besin üretmesidir. Bu süreçte oksijen açığa çıkar.";
+    }
+    else if (soru.includes("osmanlı")) {
+      aciklamaMetni = "Osmanlı Devleti, 1299 yılında Osman Bey tarafından kurulan bir imparatorluktur. 600 yıl boyunca varlığını sürdürmüştür.";
+    }
+    else {
+      aciklamaMetni = "Bu konuyla ilgili temel bilgi şu şekildedir: ... (MEB müfredatına uygun kısa tanım)";
+    }
+  }
+
+  // 2. "nasıl yapılır?" mi diyor?
+  else if (soru.includes("nasıl") || soru.includes("yapılır")) {
+    baslikMetni = `"${soru}" Nasıl Yapılır?`;
+
+    if (soru.includes("karekök")) {
+      aciklamaMetni = `
+        <p><strong>Karekök hesaplama adımları:</strong></p>
+        <ol>
+          <li>Tam kare sayıları hatırla: 1, 4, 9, 16, 25, 36, 49, 64, 81, 100</li>
+          <li>Örneğin √36 → hangi sayı 6×6=36 eder?</li>
+          <li>Cevap: 6</li>
+        </ol>
+        <p>💡 8. sınıf matematik müfredatına uygundur.</p>
+      `;
+    }
+    else if (soru.includes("fotosentez")) {
+      aciklamaMetni = `
+        <p><strong>Fotosentez nasıl olur?</strong></p>
+        <ol>
+          <li>Bitki yaprakları CO₂ alır.</li>
+          <li>Köklerle su alınır.</li>
+          <li>Güneş ışığı yapraklara gelir.</li>
+          <li>Kimyasal reaksiyonla besin (glikoz) oluşur.</li>
+        </ol>
+      `;
+    }
+    else {
+      aciklamaMetni = "Bu işlem şu adımlarla yapılır: 1) ..., 2) ..., 3) ... (MEB tarzı adım adım anlatım)";
+    }
+  }
+
+  // 3. Sayı varsa → aritmetik zeka çalıştır
+  else if (/\d/.test(soru)) {
+    baslikMetni = "Aritmetik Çözüm";
+    
+    if (soru.includes("kaç kişi") || soru.includes("toplam")) {
+      aciklamaMetni = `
+        <p><strong>Adım adım çözüm:</strong></p>
+        <p>1. Başlangıçtaki kişi sayısı: ...</p>
+        <p>2. İnenler çıkarılır, gelenler eklenir.</p>
+        <p>3. Sonuç hesaplanır.</p>
+        <p>💡 Bu soru tipi, sayısal mantık gerektirir.</p>
+      `;
+    }
+    else {
+      aciklamaMetni = "Bu soru bir işlem içeriyor. Önce verilen sayıları belirle, sonra işlem sırasını uygula.";
+    }
+  }
+
+  // Hiçbiri değilse → genel bilgi
+  else {
+    baslikMetni = "Bilgi";
+    aciklamaMetni = `
+      <p><strong>YADES notu:</strong> Bu soruyu anladım ama detaylı cevap veremiyorum.</p>
+      <p>Ama şunu dene:</p>
+      <ul>
+        <li>"karekök nedir?"</li>
+        <li>"fotosentez nasıl yapılır?"</li>
+        <li>"otobüste 10 kişi vardı, 3 kişi indi, 2 kişi bindi. Kaç kişi kaldı?"</li>
+      </ul>
+    `;
+  }
+
+  // Ekrana yaz
+  baslik.textContent = baslikMetni;
+  aciklama.innerHTML = aciklamaMetni;
+  sonuc.style.display = "block";
+  sonuc.scrollIntoView({ behavior: "smooth" });
+}
+
+function geri() {
+  window.location.href = "index.html";
+}

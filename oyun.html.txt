@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>YADES - Oyun Modu</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>YADES</h1>
+    <p><em>Oyun Modu — Eğlenerek Öğren</em></p>
+
+    <p><strong>Merhaba!</strong> Bugün nasıl oyun oynamak istersin?</p>
+
+    <div class="secenekler">
+      <button onclick="ebaOyun()">🎯 EBA'daki Oyunlara Git</button>
+      <button onclick="sohbetOyun()">💬 Benimle Oyun Oyna</button>
+    </div>
+
+    <!-- Sohbet Oyun Ekranı -->
+    <div id="sohbet-ekrani" style="display: none; margin-top: 20px;">
+      <h3>🎯 Sayı Tahmini Oyunu</h3>
+      <p>1 ile 100 arasında bir sayı tuttum. Tahmin edebilir misin?</p>
+      
+      <input type="number" id="tahmin" placeholder="Tahminin?" />
+      <button onclick="kontrolEt()">Kontrol Et</button>
+      <button onclick="yeniOyun()">Yeni Oyun</button>
+
+      <div id="sonuc" style="margin-top: 10px; font-weight: bold;"></div>
+    </div>
+
+    <button onclick="geri()" style="margin-top: 20px;">← Ana Sayfaya Dön</button>
+  </div>
+
+  <script src="js/oyun.js"></script>
+</body>
+</html>
